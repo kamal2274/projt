@@ -1,0 +1,21 @@
+name: Simple CI
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  run-app:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build and Run containers
+        run: |
+          docker-compose up --build -d
+          docker ps
+          sleep 10
+          docker logs shortener_app
+
