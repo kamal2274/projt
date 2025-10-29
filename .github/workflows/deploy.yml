@@ -19,5 +19,17 @@ jobs:
              sleep 10
              docker logs shortener_app
 
+      -  name: Create deployment package
+         run: zip -r deploy.zip . -x '*.git*'
 
+      - name: Deploy to elastic beanstalks
+        uses: einaregilsson/beanstalk-deploy@v20
+        with:
+         aws_access_key: ${{secrets.aws_Access_Key}}
+         aws_secret_key: ${{secrets.aws_Secret_Key}}
+         application_name: 'testo'
+         environment_name : "testo"
+         region: "eu-north-1"
+         version_label: ${{github.sha}}
+         deployment_package: deploy.zip
 
