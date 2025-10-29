@@ -14,7 +14,7 @@ jobs:
 
       - name: Build and Run containers
         run: |
-             docker-compose up --build -d
+             docker compose up --build -d
              docker ps
              sleep 10
              docker logs shortener_app
