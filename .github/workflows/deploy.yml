@@ -13,10 +13,11 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build and Run containers
-        run: docker-compose up --build -d
-        run: docker ps
-        run: sleep 10
-        run: docker logs shortener_app
+       run: |
+             docker-compose up --build -d
+             docker ps
+             sleep 10
+             docker logs shortener_app
 
 
 
