@@ -12,17 +12,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Docker Compose
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y docker-compose
-
       - name: Build and Run containers
-        run: |
-          docker-compose up --build -d
-          docker ps
-          sleep 10
-          docker logs shortener_app
+        run: docker-compose up --build -d
+        run: docker ps
+        run: sleep 10
+        run: docker logs shortener_app
 
 
 
