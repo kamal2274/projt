@@ -28,7 +28,7 @@ jobs:
          aws_access_key: ${{secrets.aws_Access_Key}}
          aws_secret_key: ${{secrets.aws_Secret_Key}}
          application_name: 'testo'
-         environment_name : "testo"
+         environment_name : "testo-env"
          region: "eu-north-1"
          version_label: ${{github.sha}}
          deployment_package: deploy.zip
